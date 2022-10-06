@@ -1,0 +1,31 @@
+{
+  "name": "Price Averager",
+  "version": "1.0",
+  "description": "The Price Averager will help you to get average price from amazon.com",
+  "background": {
+    "service_worker": "./static/js/background.js"
+  },
+  "action": {
+    "default_icon": {
+      "48": "logo192.png",
+      "128": "logo512.png"
+    },
+    "default_title": "Get average product price.",
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "48": "logo192.png",
+    "128": "logo512.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.amazon.com/*"],
+      "js": ["./static/js/content.js"],
+      "all_frames": false,
+      "run_at": "document_end"
+    }
+  ],
+  "manifest_version": 3,
+  "permissions": ["activeTab", "declarativeContent"],
+  "host_permissions": ["https://www.amazon.com/*"]
+}
